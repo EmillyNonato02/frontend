@@ -16,7 +16,7 @@ async function sendUser() {
         password
     }
 
-    const response = await fetch("https://backend-black-tau-27.vercel.app/cadastrar", {
+    const response = await fetch("http://localhost:3333/cadastrar", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

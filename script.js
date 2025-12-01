@@ -1,4 +1,4 @@
-function.init() {
+function init() {
     const navul = document.querySelector("nav ul")
 
     //pega o usuário salvo na sessionStorage e converter para objeto
@@ -27,3 +27,5 @@ function.init() {
     `
 
 }
+
+init()

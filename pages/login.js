@@ -5,7 +5,7 @@ button.onclick = (event) =>{
     login()
 }
 
-async function sendUser() {
+async function login() {
     const email = document.querySelector("#email").value
     const password = document.querySelector("#senha").value
 
@@ -14,7 +14,7 @@ async function sendUser() {
         password
     }
 
-    const response = await fetch("https://backend-black-tau-27.vercel.app/login", {
+    const response = await fetch("http://localhost:3333/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
