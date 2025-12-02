@@ -1,9 +1,10 @@
 const button = document.querySelector("button")
 
-button.onclick = (event) =>{
+button.onclick = (event) => {
     event.preventDefault()
     login()
 }
+
 
 async function login() {
     const email = document.querySelector("#email").value
@@ -14,17 +15,17 @@ async function login() {
         password
     }
 
-    const response = await fetch("https://backend-mu-three-97.vercel.app//login", {
+    const response = await fetch("https://backend-mu-three-97.vercel.app/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({ user })
-    }).then(response =>response.json())
+    }).then(response => response.json())
 
-    if(response.message){
-    alert(response.message)
-    return
+    if (response.message) {
+        alert(response.message)
+        return
     }
 
     const { id, name } = response

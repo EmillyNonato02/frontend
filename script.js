@@ -1,31 +1,33 @@
 function init() {
-    const navul = document.querySelector("nav ul")
+    const navUL = document.querySelector("nav ul")
 
-    //pega o usuário salvo na sessionStorage e converter para objeto
-    const user = JSON.parse (sessionStorage.getItem("user"))
+    const user = JSON.parse(sessionStorage.getItem("user"))
 
-    //user.id = recupera o id do usuário
-    //user.name = recupera o nome do usuário
-
-    //verifica se existe um usuário logado e mostra o nome e o botão de sair
-    if(user){
-        navul.innerHTML += `
-            <li><h2>Usuario: ${user.name}</h2></li>
-            <li><button>Sair</button></li>
+    if (user) {
+        navUL.innerHTML += `
             <li>
                 <a href="./pages/jogar.html">Jogar</a>
             </li>
+            <li><h2>Usuário: ${user.name}</h2></li>
+            <li><button id="logout">Sair</button></li>
+            
         `
+        const logoutButton = document.querySelector("#logout");
+        logoutButton.addEventListener("click", logout);
+
         return
     }
 
-    //só vai aparecer se não tiver usuário logado
-    navul.innerHTML += ` 
+    navUL.innerHTML += `
         <li>
             <a href="./pages/login.html">Login</a>
         </li>
     `
+}
 
+function logout() {
+    sessionStorage.removeItem("user");
+    window.location.reload();
 }
 
 init()
